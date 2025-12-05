@@ -1,4 +1,4 @@
-const tickSound = new Audio("tick.wav");
+const tickSound = new Audio("tick.mp3");
 tickSound.volume = 0.4;
 
 const canvas = document.getElementById("wheel");
@@ -143,3 +143,4 @@ function pickWinner() {
 
 // Inicial
 drawWheel();
+
