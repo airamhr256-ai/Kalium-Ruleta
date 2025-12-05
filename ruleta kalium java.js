@@ -3,7 +3,7 @@ tickSound.volume = 0.4;
 
 // Desbloquear audio en Chrome
 document.addEventListener("click", function unlockAudio() {
-    tickSound.play().catch(() => {}); // Primera reproducción "silenciosa"
+    tickSound.play().catch(() => {});
     tickSound.pause();
     tickSound.currentTime = 0;
     document.removeEventListener("click", unlockAudio);
@@ -23,10 +23,10 @@ const resultBox = document.getElementById("resultBox");
 const winnerNameEl = document.getElementById("winnerName");
 
 let players = [];
-let angle = 0;        // 🔥 nunca se reinicia
+let angle = 0;
 let isSpinning = false;
+let lastTick = 0;   // 🔥 para controlar sonido tick
 
-// Colores
 const colors = ["#00d4ff", "#b14cff", "#3b82f6", "#10b981", "#f43f5e"];
 
 // -------------------- UI --------------------
@@ -114,8 +114,15 @@ spinBtn.onclick = () => {
   const slowDown = 0.985;
 
   const spin = () => {
-    angle += speed;   // 🔥 nunca se reinicia
+    angle += speed;
     drawWheel();
+
+    // 🔊 SONIDO TICK CONTROLADO
+    if (Math.abs(angle - lastTick) > 0.25) {
+      tickSound.currentTime = 0;
+      tickSound.play();
+      lastTick = angle;
+    }
 
     speed *= slowDown;
 
@@ -142,14 +149,11 @@ function pickWinner() {
   winnerNameEl.textContent = winner;
   resultBox.style.display = "block";
 
-  // 🔥 ELIMINAR GANADOR SIN RESET ANGLE
   players.splice(index, 1);
 
   updateList();
-  drawWheel(); // se mantiene el mismo ángulo
+  drawWheel();
 }
 
 // Inicial
 drawWheel();
-
-
