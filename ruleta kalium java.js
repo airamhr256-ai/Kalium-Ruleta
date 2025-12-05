@@ -1,5 +1,13 @@
-const tickSound = new Audio("tick.mp3");
+let tickSound = new Audio("tick.mp3");
 tickSound.volume = 0.4;
+
+// Desbloquear audio en Chrome
+document.addEventListener("click", function unlockAudio() {
+    tickSound.play().catch(() => {}); // Primera reproducción "silenciosa"
+    tickSound.pause();
+    tickSound.currentTime = 0;
+    document.removeEventListener("click", unlockAudio);
+});
 
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
@@ -143,4 +151,5 @@ function pickWinner() {
 
 // Inicial
 drawWheel();
+
 
