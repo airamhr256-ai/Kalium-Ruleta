@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ruleta Kalium</title>
+  <link rel="stylesheet" href="Ruleta Kalium style.css">
+</head>
+
+<body>
+
+  <!-- Logo de Kalium -->
+ <div class="logo-title">
+    <img src="icono kalium.png" alt="Kalium Logo">
+    <h1>RuletaKalium</h1>
+</div>
+
+  <div class="wrap">
+
+    <!-- Panel izquierdo -->
+    <div class="left panel-glow">
+      <h2 class="panel-title">Jugadores</h2>
+
+      <div class="row">
+        <input id="nameInput" type="text" placeholder="Nombre del jugador">
+        <button id="addBtn">Añadir</button>
+      </div>
+
+      <ul id="players"></ul>
+
+      <div class="row">
+        <button id="clearBtn" class="secondary">Limpiar</button>
+      </div>
+
+    </div>
+
+    <!-- Ruleta -->
+    <div class="right">
+
+      <div class="wheel-frame"></div>
+
+      <div class="arrow-container">
+    <div class="arrow"></div>
+</div>
+
+      <canvas id="wheel" width="480" height="480"></canvas>
+
+      <button id="spinBtn" class="big">Girar</button>
+
+      <div id="resultBox" class="result" style="display:none;">
+        <h3 id="winnerName">Ganador</h3>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="ruleta kalium java.js"></script>
+
+  <script>
+    // ==== Bloqueo si no viene del login ====
+    if (sessionStorage.getItem("kalium_acceso") !== "permitido") {
+        window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

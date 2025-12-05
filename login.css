@@ -1,0 +1,86 @@
+/* --------- GLOBAL --------- */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #3a1d66, #0d0f17);
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+/* --------- CARD --------- */
+.card {
+    background: rgba(20, 21, 30, 0.9);
+    padding: 40px;
+    width: 360px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+.card img {
+    width: 85px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.purple {
+    color: #9b6dff;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+/* --------- INPUT --------- */
+.input {
+    width: 100%;
+    background: #1c1d26;
+    border: 1px solid #2c2d38;
+    padding: 12px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+.input:focus {
+    border-color: #8d5cff;
+}
+
+/* --------- BUTTON --------- */
+.btn {
+    width: 100%;
+    background: linear-gradient(90deg, #7b3df8, #b17dff);
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.error {
+    color: #ff5c5c;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+}

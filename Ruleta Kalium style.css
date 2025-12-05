@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* ==== GENERAL ==== */
+body {
+  background: radial-gradient(circle at top, #3a1d66, #0d0f17);
+  color: white;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ==== LOGO ==== */
+.logo-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.logo-title img {
+  height: 95px;
+  filter: drop-shadow(0 0 22px #9b7bff);
+}
+
+.logo-title h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 15px #9b7bff;
+  margin: 0;
+}
+
+/* ==== LAYOUT ==== */
+.wrap {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* ==== PANEL ==== */
+.panel-glow {
+  background: rgba(255,255,255,0.03);
+  padding: 18px;
+  width: 260px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 0 25px #4b3dfc50;
+  backdrop-filter: blur(8px);
+}
+
+.panel-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* ==== INPUTS Y BOTONES ==== */
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #151a28;
+  color: white;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 14px;
+  background: linear-gradient(145deg, #6a5cff, #3e38cc);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+.secondary {
+  background: #1c2333;
+}
+
+.big {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+}
+
+/* ==== LISTA ==== */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  background: #151a28;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* ==== RULETA ==== */
+.right {
+  position: relative;
+}
+
+/* Marco Glow Animado */
+.wheel-frame {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9b7bff35, #0000);
+  animation: pulseGlow 3s infinite;
+  z-index: -1;
+}
+
+@keyframes pulseGlow {
+  0%,100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+
+canvas {
+  border-radius: 50%;
+  box-shadow: 0 0 35px #4b3dfc;
+}
+
+/* ===== FLECHA FIJA ===== */
+.arrow-container {
+  position: fixed;
+  top: 64.6%;           /* centro vertical de la pantalla */
+  left: 72%;          /* centro horizontal de la pantalla */
+  transform: translate(-50%, -240px); /* subimos exactamente el radio del canvas */
+  z-index: 20;
+  pointer-events: none;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-right: 26px solid #ff5c5c;
+
+  /* Glow */
+  filter: drop-shadow(0 0 8px #ff4f4f);
+
+  /* Borde negro para mejor contraste */
+  box-shadow:
+    -2px 0 0 0 #000,
+    -3px 0 6px #000;
+
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+
+  animation: arrowPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes arrowPulse {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(0) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Resultado */
+.result {
+  background: #151a28;
+  padding: 12px;
+  margin-top: 18px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 15px #4b3dfc;
+}
